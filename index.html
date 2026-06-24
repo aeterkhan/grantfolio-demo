@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>그랜트폴리오 for 여기술 — 지원사업 포트폴리오 진단</title>
+<style>
+  :root{
+    --navy:#0b2545; --navy2:#13315c; --blue:#2563eb; --blue-soft:#dbeafe;
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f1f5f9; --card:#ffffff;
+    --green:#16a34a; --green-soft:#dcfce7; --amber:#d97706; --amber-soft:#fef3c7;
+    --gray:#64748b; --gray-soft:#e2e8f0; --red:#dc2626; --red-soft:#fee2e2;
+    --shadow:0 1px 2px rgba(15,23,42,.06), 0 6px 20px rgba(15,23,42,.06);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:var(--blue)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  /* top bar */
+  .topbar{background:var(--navy);color:#fff}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+  .brand{display:flex;align-items:baseline;gap:8px;font-weight:700;letter-spacing:-.3px}
+  .brand .b1{font-size:18px}
+  .brand .b2{font-size:13px;color:#9fb6d6}
+  .topbar .meta{font-size:12px;color:#9fb6d6}
+  /* hero */
+  .hero{background:linear-gradient(180deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;padding:44px 0 52px}
+  .hero h1{margin:0 0 10px;font-size:30px;letter-spacing:-.6px}
+  .hero .lead{font-size:16px;color:#cdddf2;max-width:760px;margin:0 0 6px}
+  .hero .sub{font-size:13px;color:#8fa9c8;max-width:760px}
+  .hero .pill{display:inline-block;margin-top:16px;background:rgba(255,255,255,.1);
+    border:1px solid rgba(255,255,255,.18);color:#dbeafe;font-size:12px;padding:6px 12px;border-radius:999px}
+  /* layout */
+  main{padding:28px 0 60px}
+  section{margin:0 0 30px}
+  h2{font-size:15px;text-transform:none;letter-spacing:-.2px;margin:0 0 12px;color:var(--navy);
+    display:flex;align-items:center;gap:8px}
+  h2 .tag{font-size:11px;font-weight:600;color:var(--muted);background:#fff;border:1px solid var(--line);
+    padding:2px 8px;border-radius:999px}
+  /* profile card */
+  .profile{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);
+    padding:18px 20px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px 22px}
+  .profile .full{grid-column:1/-1}
+  .kv .k{font-size:11px;color:var(--muted);margin-bottom:2px}
+  .kv .v{font-size:14px;font-weight:600;color:var(--ink)}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+  .chip{font-size:11px;background:var(--blue-soft);color:#1e40af;border-radius:999px;padding:3px 9px}
+  /* summary */
+  .summary{display:grid;grid-template-columns:repeat(4,1fr) 1.3fr;gap:12px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow)}
+  .stat .n{font-size:26px;font-weight:800;line-height:1}
+  .stat .l{font-size:12px;color:var(--muted);margin-top:6px}
+  .stat.act{background:var(--navy);color:#fff;border:none}
+  .stat.act .l{color:#9fb6d6}
+  .stat .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle}
+  /* filter */
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+  .filters button{font:inherit;font-size:12.5px;cursor:pointer;border:1px solid var(--line);background:#fff;
+    color:var(--ink);padding:6px 12px;border-radius:999px}
+  .filters button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+  /* grid */
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);
+    padding:16px 18px;display:flex;flex-direction:column;gap:11px}
+  .card.hidden{display:none}
+  .card .row1{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .badge{font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:999px;white-space:nowrap}
+  .v-go{background:var(--green-soft);color:#166534}
+  .v-prep{background:var(--amber-soft);color:#92400e}
+  .v-mon{background:var(--gray-soft);color:#334155}
+  .v-no{background:var(--red-soft);color:#991b1b}
+  .dday{font-size:11.5px;font-weight:700;color:#fff;background:var(--muted);border-radius:999px;padding:4px 10px}
+  .dday.urgent{background:var(--red)}
+  .dday.soon{background:var(--amber)}
+  .dday.past{background:#94a3b8}
+  .card h3{margin:0;font-size:16px;letter-spacing:-.3px}
+  .scoreline{display:flex;align-items:flex-end;gap:10px}
+  .scoreline .fs{font-size:30px;font-weight:800;line-height:1;color:var(--navy)}
+  .scoreline .fsl{font-size:11px;color:var(--muted);padding-bottom:3px}
+  .bars{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .bar .bl{font-size:10px;color:var(--muted);display:flex;justify-content:space-between}
+  .bar .track{height:6px;background:#eef2f7;border-radius:4px;overflow:hidden;margin-top:3px}
+  .bar .fill{height:100%;border-radius:4px;background:var(--blue)}
+  .bar.obl .fill{background:#0ea5e9}
+  .obl{display:flex;flex-wrap:wrap;gap:5px}
+  .obl .o{font-size:10.5px;border-radius:6px;padding:2px 7px;border:1px solid var(--line)}
+  .lv-low{background:var(--green-soft);color:#166534;border-color:#bbf7d0}
+  .lv-mid{background:var(--amber-soft);color:#92400e;border-color:#fde68a}
+  .lv-high{background:var(--red-soft);color:#991b1b;border-color:#fecaca}
+  .meta-rows{font-size:12.5px;display:flex;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:10px}
+  .meta-rows .mr{display:flex;gap:7px}
+  .meta-rows .mk{flex:0 0 52px;color:var(--muted);font-weight:600}
+  .meta-rows .next{background:#f0f7ff;border:1px solid #d6e6fb;border-radius:8px;padding:7px 9px}
+  .role{font-size:11px;color:#1e40af;background:var(--blue-soft);align-self:flex-start;border-radius:999px;padding:3px 10px}
+  /* roadmap */
+  .road{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+  .road .col{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;box-shadow:var(--shadow)}
+  .road .when{font-size:11px;font-weight:700;color:var(--blue);margin-bottom:8px}
+  .road .it{font-size:12px;padding:6px 0;border-top:1px solid var(--line)}
+  .road .it:first-of-type{border-top:none}
+  /* table */
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);
+    border-radius:12px;overflow:hidden;box-shadow:var(--shadow);font-size:13px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}
+  th{background:#f8fafc;font-size:11.5px;color:var(--muted);font-weight:700}
+  tr:last-child td{border-bottom:none}
+  .pill-sm{font-size:11px;padding:2px 8px;border-radius:999px;font-weight:700}
+  /* prompt */
+  .prompt{background:var(--navy);color:#e8f0fb;border-radius:14px;padding:18px 20px;position:relative}
+  .prompt pre{margin:0;white-space:pre-wrap;font-size:12.5px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;line-height:1.65}
+  .prompt button{position:absolute;top:14px;right:14px;font:inherit;font-size:12px;cursor:pointer;
+    background:#fff;color:var(--navy);border:none;border-radius:8px;padding:6px 12px;font-weight:700}
+  /* footer */
+  footer{border-top:1px solid var(--line);padding:22px 0 50px;color:var(--muted);font-size:12px}
+  .disc{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:14px;line-height:1.7}
+  .src a{margin-right:14px;font-size:12px}
+  @media(max-width:760px){
+    .profile{grid-template-columns:1fr 1fr}.summary{grid-template-columns:repeat(2,1fr)}
+    .grid{grid-template-columns:1fr}.road{grid-template-columns:1fr}.bars{grid-template-columns:repeat(5,1fr)}
+  }
+</style>
+</head>
+<body>
+  <div class="topbar"><div class="wrap">
+    <div class="brand"><span class="b1">Grantfolio</span><span class="b2">for 여기술</span></div>
+    <div class="meta">진단 기준일 2026-06-24 · 데모(seed)</div>
+  </div></div>
+
+  <header class="hero"><div class="wrap">
+    <h1>지원사업을 포트폴리오처럼 설계하세요</h1>
+    <p class="lead">(주)여기음료의 사업계획을 기준으로 <b>지금 받을 지원, 준비할 지원, 받으면 안 되는 지원</b>을 점수로 가립니다.</p>
+    <p class="sub">많이 받는 게 답이 아닙니다. 잘못 받으면 자부담·정산·성과목표 때문에 본업이 발목 잡힙니다. 그래서 의무 부담을 점수에 반영합니다.</p>
+    <span class="pill">점수·판정은 PRD 공식(7.3)·시드 검증 규칙(7.4)으로 <b>실시간 계산</b></span>
+  </div></header>
+
+  <main class="wrap">
+    <section>
+      <h2>회사 프로필 <span class="tag">고객 #0</span></h2>
+      <div class="profile" id="profile"></div>
+    </section>
+
+    <section>
+      <h2>포트폴리오 요약</h2>
+      <div class="summary" id="summary"></div>
+    </section>
+
+    <section>
+      <h2>추천 지원사업 <span class="tag">판정 · 점수 · 의무감사</span></h2>
+      <div class="filters" id="filters"></div>
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <section>
+      <h2>12개월 포트폴리오 로드맵</h2>
+      <div class="road" id="road"></div>
+    </section>
+
+    <section>
+      <h2>서류제로 모드 <span class="tag">행정·의무 부담</span></h2>
+      <table id="oblTable"><thead><tr>
+        <th>공고</th><th>판정</th><th>자부담</th><th>환수</th><th>성과/KPI</th><th>보고·정산</th><th>종합 부담</th>
+      </tr></thead><tbody></tbody></table>
+    </section>
+
+    <section>
+      <h2>사업계획서 보강 프롬프트 <span class="tag">복사해서 사용</span></h2>
+      <div class="prompt">
+        <button onclick="copyPrompt()" id="copyBtn">복사</button>
+        <pre id="promptText"></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap">
+    <div class="disc" id="disclaimer"></div>
+    <div class="src">
+      출처:
+      <a href="https://www.bizinfo.go.kr/apiDetail.do?id=bizinfoApi" target="_blank">기업마당 API</a>
+      <a href="https://www.data.go.kr/data/15125364/openapi.do" target="_blank">K-Startup 공공데이터</a>
+      <a href="https://thevc.kr/grants" target="_blank">THE VC 지원사업</a>
+    </div>
+  </div></footer>
+
+<script>
+/* ---------- 기준일 (데모 스냅샷) ---------- */
+const TODAY = new Date('2026-06-24T00:00:00');
+
+/* ---------- 회사 프로필 ---------- */
+const company = {
+  회사명:"(주)여기음료", 프로젝트:"여기술",
+  사업유형:"B2B 식음료 발주·도매 매칭 플랫폼", 핵심고객:"외식업 소상공인",
+  핵심기술:"OCR · 발주 추천 · 도매 매칭 · 데이터 분석",
+  포지션:["소상공인 디지털전환","유통 DX","푸드테크","B2B SaaS"]
+};
+
+/* ---------- 공고 시드 (+ 의무 분해 데모데이터) ---------- */
+const programs = [
+  {id:"eunpyeong", title:"도전! 2026 은평스타트업리그", deadline:"2026-07-13",
+   fit:78, win:72, obl:86, fol:82, net:80,
+   reason:"은평/서울 기반 스타트업 네트워크와 글로벌 파트너 연계 측면에서 저부담 테스트에 적합",
+   risk:"글로벌 진출 논리가 약하면 사업 초점이 흐려질 수 있음",
+   next:"은평구/서울 소재 요건과 제출서류 확인 후 1페이지 사업계획서 작성",
+   role:"지역 네트워크 및 글로벌 확장 검증",
+   ob:{자부담:"low",환수:"low",KPI:"low",보고:"low",락인:"low",중복:"low"}},
+  {id:"gwanak", title:"2026 관악S밸리 브릿지 데모데이", deadline:"2026-06-26",
+   fit:75, win:64, obl:90, fol:88, net:78,
+   reason:"Seed 투자자 접점 확보와 IR 검증에 적합",
+   risk:"마감이 촉박하며 IR Deck 최소본이 필요함",
+   next:"오늘 신청 자격 확인 후 기존 IR/소개서로 최소 제출본 구성",
+   role:"투자자 접점 및 IR 검증",
+   ob:{자부담:"low",환수:"low",KPI:"low",보고:"low",락인:"low",중복:"low"}},
+  {id:"rnd", title:"중소기업기술혁신개발(구조혁신R&D) 2차", deadline:"2026-07-06",
+   fit:76, win:52, obl:34, fol:84, net:58,
+   reason:"AI/OCR/가격 이상탐지/도매 동선 최적화 과제로 재정의하면 기술개발 과제로 만들 수 있음",
+   risk:"행정·정산·기술개발 산출물 부담이 크며 전담자가 없으면 본업을 방해할 수 있음",
+   next:"R&D 과제명, 개발 산출물, 연구인력, 사업비 집행계획을 먼저 보강",
+   role:"기술자산 및 후속 TIPS/R&D 사다리",
+   ob:{자부담:"high",환수:"high",KPI:"high",보고:"high",락인:"mid",중복:"mid"}},
+  {id:"foodcenter", title:"서울먹거리창업센터 18차 입주기업", deadline:"2026-07-09",
+   fit:72, win:60, obl:74, fol:76, net:70,
+   reason:"식음료 유통·푸드테크 네트워크와 공간/보육 지원 측면에서 적합 가능",
+   risk:"주류 중심으로 보이면 적합도가 낮아질 수 있음",
+   next:"식음료 발주 DX/푸드테크 관점으로 소개서 수정 후 상세 공고 확인",
+   role:"푸드테크 네트워크 및 보육",
+   ob:{자부담:"low",환수:"low",KPI:"mid",보고:"mid",락인:"mid",중복:"low"}},
+  {id:"sodam", title:"디지털커머스 전문기관 소상공인 지원", deadline:"2026-12-31",
+   fit:48, win:40, obl:88, fol:65, net:68,
+   reason:"여기음료 직접 수혜보다 여기술 고객 소상공인에게 추천할 수 있는 지원사업 DB로 가치가 높음",
+   risk:"직접 신청 대상은 디지털전환이 필요한 소상공인 중심일 가능성이 높음",
+   next:"고객 혜택 추천 DB로 등록하고, 지역 고객에게 안내 콘텐츠 제작",
+   role:"고객 혜택 연계 및 플랫폼 락인",
+   ob:{자부담:"low",환수:"low",KPI:"low",보고:"low",락인:"low",중복:"low"}},
+  {id:"smart", title:"2026 중소기업 스마트서비스 지원사업", deadline:"2026-05-22",
+   fit:88, win:0, obl:48, fol:86, net:72,
+   reason:"소상공인 발주/정산 SaaS와 매우 잘 맞지만 2026년 접수는 마감됨",
+   risk:"다음 회차 전까지 기술개발 산출물과 고객 증빙을 준비해야 함",
+   next:"다음 회차 모니터링 대상으로 등록하고 스마트서비스형 사업계획서 템플릿 준비",
+   role:"다음 회차 핵심 사업화/R&D 후보",
+   ob:{자부담:"mid",환수:"mid",KPI:"mid",보고:"mid",락인:"low",중복:"low"}}
+];
+
+/* ---------- 엔진: 공식(7.3) + 판정 규칙(7.4) ---------- */
+function finalScore(p){ return p.fit*0.30 + p.win*0.25 + p.obl*0.15 + p.fol*0.20 + p.net*0.10; }
+function dday(p){ const d=new Date(p.deadline+'T00:00:00'); return Math.round((d-TODAY)/86400000); }
+function verdict(p){
+  const fs=finalScore(p);
+  if(dday(p) < 0) return "모니터링";                         // 1. 마감 지남
+  if(p.fit < 55 || p.win < 45) return "모니터링";            // 2. 적합/가능성 부족
+  if(p.obl < 35 && p.net < 50) return "비추천";              // 3. 실익 없는 의무 함정
+  if(fs >= 75 && p.obl >= 60) return "바로 지원";            // 4.
+  return "준비 후 지원";                                     // 5.
+}
+const V = {"바로 지원":{c:"v-go",dot:"var(--green)"},"준비 후 지원":{c:"v-prep",dot:"var(--amber)"},
+           "모니터링":{c:"v-mon",dot:"var(--gray)"},"비추천":{c:"v-no",dot:"var(--red)"}};
+const ORDER = {"바로 지원":0,"준비 후 지원":1,"모니터링":2,"비추천":3};
+const LV = {low:["lv-low","낮음"],mid:["lv-mid","중간"],high:["lv-high","높음"]};
+
+/* ---------- 렌더 ---------- */
+function ddayLabel(p){
+  const n=dday(p);
+  if(n<0) return {t:"마감",cls:"past"};
+  if(n===0) return {t:"D-DAY",cls:"urgent"};
+  return {t:"D-"+n, cls:(n<=7?"urgent":(n<=21?"soon":""))};
+}
+
+function renderProfile(){
+  const el=document.getElementById('profile');
+  const f=(k,v)=>`<div class="kv"><div class="k">${k}</div><div class="v">${v}</div></div>`;
+  el.innerHTML =
+    f("회사명",company.회사명)+f("프로젝트",company.프로젝트)+f("핵심 고객",company.핵심고객)+
+    `<div class="kv full"><div class="k">사업유형</div><div class="v">${company.사업유형}</div></div>`+
+    `<div class="kv full"><div class="k">핵심 기술</div><div class="v">${company.핵심기술}</div></div>`+
+    `<div class="kv full"><div class="k">지원사업 포지션</div><div class="chips">${company.포지션.map(c=>`<span class="chip">${c}</span>`).join('')}</div></div>`;
+}
+
+function renderSummary(){
+  const counts={"바로 지원":0,"준비 후 지원":0,"모니터링":0,"비추천":0};
+  programs.forEach(p=>counts[verdict(p)]++);
+  const actNow = programs.filter(p=>verdict(p)==="바로 지원").length;
+  const el=document.getElementById('summary');
+  const stat=(n,l,dot)=>`<div class="stat"><div class="n">${n}</div><div class="l"><span class="dot" style="background:${dot}"></span>${l}</div></div>`;
+  el.innerHTML =
+    stat(counts["바로 지원"],"바로 지원","var(--green)")+
+    stat(counts["준비 후 지원"],"준비 후 지원","var(--amber)")+
+    stat(counts["모니터링"],"모니터링","var(--gray)")+
+    stat(counts["비추천"],"비추천","var(--red)")+
+    `<div class="stat act"><div class="n">${actNow}건</div><div class="l">이번 주 바로 검토 대상</div></div>`;
+}
+
+function bar(label,val,obl){
+  return `<div class="bar ${obl?'obl':''}"><div class="bl"><span>${label}</span><span>${val}</span></div>
+    <div class="track"><div class="fill" style="width:${val}%"></div></div></div>`;
+}
+
+function card(p){
+  const v=verdict(p), fs=finalScore(p).toFixed(1), dd=ddayLabel(p);
+  const obl = Object.entries(p.ob).map(([k,lv])=>`<span class="o ${LV[lv][0]}">${k} ${LV[lv][1]}</span>`).join('');
+  return `<div class="card" data-v="${v}">
+    <div class="row1">
+      <span class="badge ${V[v].c}">${v}</span>
+      <span class="dday ${dd.cls}">${dd.t}</span>
+    </div>
+    <h3>${p.title}</h3>
+    <div class="scoreline"><span class="fs">${fs}</span><span class="fsl">최종 추천 점수 / 100</span></div>
+    <div class="bars">
+      ${bar("Fit",p.fit)}${bar("Win",p.win)}${bar("Obl",p.obl,true)}${bar("Fol",p.fol)}${bar("Net",p.net)}
+    </div>
+    <div class="obl">${obl}</div>
+    <div class="meta-rows">
+      <div class="mr"><span class="mk">이유</span><span>${p.reason}</span></div>
+      <div class="mr"><span class="mk">주의</span><span>⚠ ${p.risk}</span></div>
+      <div class="mr"><span class="mk">다음</span><span class="next">${p.next}</span></div>
+    </div>
+    <span class="role">${p.role}</span>
+  </div>`;
+}
+
+let activeFilter="전체";
+function renderGrid(){
+  const grid=document.getElementById('grid');
+  const sorted=[...programs].sort((a,b)=> (ORDER[verdict(a)]-ORDER[verdict(b)]) || (finalScore(b)-finalScore(a)));
+  grid.innerHTML = sorted.map(card).join('');
+  [...grid.children].forEach(c=>{
+    c.classList.toggle('hidden', !(activeFilter==="전체" || c.dataset.v===activeFilter));
+  });
+}
+function renderFilters(){
+  const f=document.getElementById('filters');
+  const opts=["전체","바로 지원","준비 후 지원","모니터링","비추천"];
+  f.innerHTML=opts.map(o=>`<button data-f="${o}" class="${o===activeFilter?'on':''}">${o}</button>`).join('');
+  f.querySelectorAll('button').forEach(b=>b.onclick=()=>{activeFilter=b.dataset.f;renderFilters();renderGrid();});
+}
+
+function renderRoad(){
+  const cols=[
+    {when:"오늘~2주", it:["은평스타트업리그 신청 검토","관악S밸리 투자자 매칭 확인","1p 소개서·IR 최소본 정리"]},
+    {when:"2~6주", it:["구조혁신 R&D 적합성 체크","서울먹거리창업센터 검토","기술개발 산출물 정의"]},
+    {when:"2~3개월", it:["고객·도매상 증빙 정리","거래명세서 절감 사례 확보","OCR 테스트 화면"]},
+    {when:"3~6개월", it:["스마트서비스 다음 회차 대비","정책자금/보증 준비","사업화 트랙"]},
+    {when:"6~12개월", it:["AC/VC 미팅","TIPS 운영사 접촉","오픈이노베이션 PoC"]}
+  ];
+  document.getElementById('road').innerHTML = cols.map(c=>
+    `<div class="col"><div class="when">${c.when}</div>${c.it.map(i=>`<div class="it">${i}</div>`).join('')}</div>`).join('');
+}
+
+function renderOblTable(){
+  const tb=document.querySelector('#oblTable tbody');
+  const heavy=p=> (p.obl<40?["lv-high","높음"]:(p.obl<70?["lv-mid","중간"]:["lv-low","낮음"]));
+  tb.innerHTML = programs.map(p=>{
+    const v=verdict(p), h=heavy(p);
+    const cell=lv=>`<span class="pill-sm ${LV[lv][0]}">${LV[lv][1]}</span>`;
+    return `<tr>
+      <td>${p.title}</td>
+      <td><span class="pill-sm ${V[v].c}">${v}</span></td>
+      <td>${cell(p.ob.자부담)}</td><td>${cell(p.ob.환수)}</td><td>${cell(p.ob.KPI)}</td><td>${cell(p.ob.보고)}</td>
+      <td><span class="pill-sm ${h[0]}">${h[1]}</span></td>
+    </tr>`;
+  }).join('');
+}
+
+const PROMPT=`아래 사업계획서를 "소상공인 식음료 발주·정산 디지털전환 플랫폼" 관점으로 재작성해줘.
+특히 문제인식, 실현가능성, 성장전략, 팀역량, 사업비 사용계획을 정부지원사업 평가위원 관점으로 보강해줘.
+주류 플랫폼이라는 표현은 규제 오해가 없도록 식음료 발주 DX / B2B 유통 최적화 표현으로 정리해줘.`;
+function renderPrompt(){ document.getElementById('promptText').textContent=PROMPT; }
+function copyPrompt(){
+  navigator.clipboard.writeText(PROMPT).then(()=>{
+    const b=document.getElementById('copyBtn'); b.textContent="복사됨 ✓"; setTimeout(()=>b.textContent="복사",1500);
+  }).catch(()=>{ const b=document.getElementById('copyBtn'); b.textContent="복사 실패"; });
+}
+
+document.getElementById('disclaimer').textContent =
+  "본 서비스는 정부지원사업 공고와 사업계획서를 바탕으로 한 AI 기반 전략 진단 도구입니다. 선정 가능성, 지원 자격, 지원금 수령을 보장하지 않습니다. 실제 신청 전에는 반드시 해당 공고 원문, 신청 자격, 제외 조건, 중복수혜 제한, 사업비 집행 기준을 확인해야 합니다. 주류 관련 사업은 관련 법령과 면허 구조를 준수해야 하며, 본 서비스는 법률 자문을 대체하지 않습니다.";
+
+renderProfile(); renderSummary(); renderFilters(); renderGrid(); renderRoad(); renderOblTable(); renderPrompt();
+</script>
+</body>
+</html>
