@@ -1,4 +1,4 @@
-:HL["/grantfolio-demo/_next/static/chunks/3abg4p2vix7x1.css","style"]
+:HL["/grantfolio-demo/_next/static/chunks/1wdwqwv9ssml5.css","style"]
 :HL["https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css","style"]
 :HL["https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"dWPBWWKls8z9R0WajcIsk"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"1izYyrxlYWXpmVgC8AUZ0"}
