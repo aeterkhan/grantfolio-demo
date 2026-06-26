@@ -2,4 +2,4 @@
 2:I[74725,["/grantfolio-demo/_next/static/chunks/1afemusn34dru.js"],"default"]
 3:I[11990,["/grantfolio-demo/_next/static/chunks/1afemusn34dru.js"],"default"]
 4:[]
-0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"1izYyrxlYWXpmVgC8AUZ0"}
+0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"rrb6_PW0MgFO9McXXUF1_"}
