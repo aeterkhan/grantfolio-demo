@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,68444,t=>{"use strict";t.s(["extractText",0,function(t){return{format:"text",text:t,tables:[]}}])}]);
