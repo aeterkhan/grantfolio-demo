@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,32056,i=>{"use strict";i.s(["buildSignals",0,function(i){return{extraPositive:[...new Set([...i.positiveKeywords,...i.positions].map(i=>i.trim()).filter(Boolean))],region:i.region}}])}]);
