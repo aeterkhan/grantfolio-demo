@@ -1,1 +1,0 @@
-(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,59506,t=>{"use strict";t.s(["assetUrl",0,function(t){let o=t.startsWith("/")?t:`/${t}`;return`/grantfolio-demo${o}`}])}]);

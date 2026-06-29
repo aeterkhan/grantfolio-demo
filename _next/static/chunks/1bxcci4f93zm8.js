@@ -1,1 +1,0 @@
-(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,14152,t=>{t.q("/grantfolio-demo/_next/static/media/rhwp_bg.2g3bb-y0jnvh-.wasm")},59506,t=>{"use strict";t.s(["assetUrl",0,function(t){let o=t.startsWith("/")?t:`/${t}`;return`/grantfolio-demo${o}`}])}]);
