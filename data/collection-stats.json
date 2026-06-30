@@ -1,6 +1,7 @@
 {
-  "generatedAt": "2026-06-30T09:02:26.794Z",
-  "today": "2026-06-24",
+  "generatedAt": "2026-06-30T09:22:42.643Z",
+  "statsToday": "2026-06-30",
+  "scoringToday": "2026-06-24",
   "total": 1881,
   "relevant": 1603,
   "verifiedTotal": 1407,
@@ -45,9 +46,9 @@
     "비추천": 3
   },
   "deadline": {
-    "active": 694,
-    "soon7": 176,
-    "expired": 216,
+    "active": 510,
+    "soon7": 344,
+    "expired": 232,
     "undated": 795
   },
   "kinds": {
@@ -74,5 +75,112 @@
     "전북": 64,
     "부산": 68,
     "경남": 94
-  }
+  },
+  "categories": {
+    "NETWORKING": 16,
+    "ETC": 25,
+    "OPENINNOVATION": 16,
+    "INCUBATION": 26,
+    "GLOBAL": 10,
+    "IRDEMODAYOBSERVE": 5,
+    "COLLECTIVEIMPACT": 5,
+    "ACCELERATING": 7,
+    "IRDEMODAY": 5,
+    "CONFERENCE": 6,
+    "기타": 22,
+    "사업공고": 61,
+    "창업": 110,
+    "내수": 80,
+    "경영": 479,
+    "수출": 225,
+    "인력": 243,
+    "기술": 331,
+    "금융": 209
+  },
+  "soon": [
+    {
+      "title": "[모집공고] D-tech 제조 브릿지 패스",
+      "source": "CCEI",
+      "region": "대전",
+      "deadline": "2026-06-30",
+      "url": "https://ccei.creativekorea.or.kr/service/business_view.do?seq=10464&menu_type=00040001"
+    },
+    {
+      "title": "@Echelon Singapore 2026 참가 기업 모집",
+      "source": "CCEI",
+      "region": "대전",
+      "deadline": "2026-06-30",
+      "url": "https://ccei.creativekorea.or.kr/service/business_view.do?seq=10294&menu_type=00040001"
+    },
+    {
+      "title": "[경기] 연천군 2026년 2차 국내전시회 참가기업 지원사업 모집 공고",
+      "source": "기업마당",
+      "region": "경기",
+      "deadline": "2026-06-30",
+      "url": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123581"
+    },
+    {
+      "title": "[충북] 2026년 농식품 홍콩 무역사절단 파견 참여기업 모집 연장 공고",
+      "source": "기업마당",
+      "region": "충북",
+      "deadline": "2026-06-30",
+      "url": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123573"
+    },
+    {
+      "title": "[충남] 2026년 2차 에너지기술공유대학 산학공동 에너지프로젝트 지원사업 공고",
+      "source": "기업마당",
+      "region": "충남",
+      "deadline": "2026-06-30",
+      "url": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123572"
+    },
+    {
+      "title": "2026년 대한민국산업전시회 수출컨소시엄 단체관 참가기업 모집 공고",
+      "source": "기업마당",
+      "region": "경기",
+      "deadline": "2026-06-30",
+      "url": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123564"
+    },
+    {
+      "title": "[부산] 가상융합 기업 해외 전시회 참가 지원사업 모집 추가 공고",
+      "source": "기업마당",
+      "region": "부산",
+      "deadline": "2026-06-30",
+      "url": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123554"
+    },
+    {
+      "title": "[충남] 2026년 재난안전산업 진흥시설 조성지원사업 교육훈련 및 사업화 지원 참여기업 모집 공고",
+      "source": "기업마당",
+      "region": "충남",
+      "deadline": "2026-06-30",
+      "url": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123552"
+    },
+    {
+      "title": "[제주] 서귀포시 2026년 3차 방문객을 위한 지능형 여행지원산업 기업지원프로그램 수혜기업 모집 공고(시군구연고산업 육성사업)",
+      "source": "기업마당",
+      "region": "전국/기관",
+      "deadline": "2026-06-30",
+      "url": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123522"
+    },
+    {
+      "title": "2026년 중국 추계 의료기기전시회(CMEF Beijing 2026) 한국관 참여기업 모집 공고",
+      "source": "기업마당",
+      "region": "전국/기관",
+      "deadline": "2026-06-30",
+      "url": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123521"
+    },
+    {
+      "title": "[경기] 부천시 2026년 인공지능(AI) 클라우드 컴퓨팅 활용 지원사업 추가모집 공고",
+      "source": "기업마당",
+      "region": "경기",
+      "deadline": "2026-06-30",
+      "url": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123518"
+    },
+    {
+      "title": "[부산] 2026년 도쿄게임쇼 부산공동관 참가기업 모집 연장 공고",
+      "source": "기업마당",
+      "region": "부산",
+      "deadline": "2026-06-30",
+      "url": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123508"
+    }
+  ]
 }
